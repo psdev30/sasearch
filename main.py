@@ -51,6 +51,7 @@ def landingPage():
 
 @app.route('/search/<fileName>', methods =['GET'])
 def search(fileName):
+    #convert mp4 file to mp3
     mp4 = 'clips_library/' + fileName + '.mp4'
     mp3 = fileName + '.mp3'
     wav = fileName + '.wav'
@@ -60,16 +61,26 @@ def search(fileName):
     audioClip.close()
     videoClip.close()
 
+    #convert mp3 to wav
     filepath = os.path.abspath(mp3)
     sound = AudioSegment.from_mp3(filepath).export(wav, format="wav")
 
+    #extract text from wav file & set Clip model properties
     r = sr.Recognizer()
-
     with sr.WavFile(os.path.abspath(wav)) as source:
         audio = r.record(source)
-        print(r.recognize_google(audio))
+        text = r.recognize_google(audio)
+        name = fileName.title()
+        if('_' in fileName):
+            name = name.replace('_', ' ')
+        short_path = fileName + '.mp4'
 
-    return 'completed!'
+    #construct Clip object + push to db if it doesn't already exist
+    if(db.session.query(Clip).filter(Clip.name == name).count() == 0):
+        clipObj = Clip(name, short_path, text)
+        db.session.add(clipObj)
+        db.session.commit()
+        return 'completed!'
 
 
 if(__name__ == '__main__'):
