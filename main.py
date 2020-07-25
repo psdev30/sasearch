@@ -1,20 +1,11 @@
-import speech_recognition as sr
-import wave
 import os
-from pydub import AudioSegment
-from moviepy.editor import *
-
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-
-import speech_recognition as sr
-
-src_name = "we_do_not_care.mp3"
-dst_name = "we_do_not_care.wav"
+from conversions import Conversions
 
 directory = 'C:/Users/psjuk/SASearch'
-os.chdir(directory)
 
+os.chdir(directory)
 
 app = Flask(__name__)
 
@@ -43,44 +34,29 @@ class Clip(db.Model):
         self.short_path = short_path
         self.text = text
 
-
+#default server page
 @app.route('/')
 def landingPage():
     return render_template('index.html')
 
-@app.route('/search/<fileName>', methods =['GET'])
-def search(fileName):
+@app.route('/addClip/<fileName>', methods =['GET'])
+def addClip(fileName):
+
     #convert mp4 file to mp3
-    mp4 = 'clips_library/' + fileName + '.mp4'
-    mp3 = fileName + '.mp3'
-    wav = fileName + '.wav'
-    videoClip = VideoFileClip(mp4)
-    audioClip = videoClip.audio
-    audioClip.write_audiofile(mp3)
-    audioClip.close()
-    videoClip.close()
+    wav, mp3 = Conversions.convertToMp3(fileName)
 
     #convert mp3 to wav
-    filepath = os.path.abspath(mp3)
-    sound = AudioSegment.from_mp3(filepath).export(wav, format="wav")
+    Conversions.convertToWav(wav, mp3)
 
     #extract text from wav file & set Clip model properties
-    r = sr.Recognizer()
-    with sr.WavFile(os.path.abspath(wav)) as source:
-        audio = r.record(source)
-        text = r.recognize_google(audio)
-        name = fileName.title()
-        if('_' in fileName):
-            name = name.replace('_', ' ')
-        short_path = fileName + '.mp4'
+    name, short_path, text = Conversions.extractText(wav, fileName)
 
     #construct Clip object + push to db if it doesn't already exist
-    if(db.session.query(Clip).filter(Clip.name == name).count() == 0):
+    if (db.session.query(Clip).filter(Clip.name == name).count() == 0):
         clipObj = Clip(name, short_path, text)
         db.session.add(clipObj)
         db.session.commit()
         return 'completed!'
-
 
 
 if(__name__ == '__main__'):
