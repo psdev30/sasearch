@@ -44,7 +44,6 @@ class Clip(db.Model):
         self.text = text
 
 
-
 @app.route('/')
 def landingPage():
     return render_template('index.html')
@@ -81,6 +80,7 @@ def search(fileName):
         db.session.add(clipObj)
         db.session.commit()
         return 'completed!'
+
 
 
 if(__name__ == '__main__'):
