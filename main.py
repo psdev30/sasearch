@@ -1,4 +1,6 @@
 import os
+
+import sqlalchemy
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import nltk
@@ -45,7 +47,11 @@ def landingPage():
 #handle search query
 @app.route('/search/<query>', methods = ['GET'])
 def getMatches(query):
-    return query
+    fetch_results = sqlalchemy.text("SELECT * FROM clip WHERE text LIKE CONCAT('%','I','%')")
+    return fetch_results
+
+
+
 
 #only for adding clips to library
 @app.route('/addClip/<fileName>', methods =['GET'])
