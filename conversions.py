@@ -15,7 +15,7 @@ class Conversions:
         videoClip.close()
         return wav, mp3
 
-    def convertToWav(mp3, wav):
+    def convertToWav(wav, mp3):
         filepath = os.path.abspath(mp3)
         sound = AudioSegment.from_mp3(filepath).export(wav, format="wav")
 
@@ -29,5 +29,5 @@ class Conversions:
                 name = name.replace('_', ' ')
             short_path = fileName + '.mp4'
         os.remove(fileName + '.mp3')
-        os.remove(fileName + '.wav')
+        # os.remove(fileName + '.wav')
         return name, short_path, text
