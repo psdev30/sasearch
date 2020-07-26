@@ -29,5 +29,5 @@ class Conversions:
                 name = name.replace('_', ' ')
             short_path = fileName + '.mp4'
         os.remove(fileName + '.mp3')
-        # os.remove(fileName + '.wav')
+        os.remove(fileName + '.wav')
         return name, short_path, text
