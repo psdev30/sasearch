@@ -52,6 +52,7 @@ def addClip(fileName):
     #extract text from wav file & set Clip model properties
     name, short_path, text = Conversions.extractText(wav, fileName)
 
+    #filter out stopwords before committing to database
     text = text.lower()
     splitText = text.split()
     for word in splitText:
