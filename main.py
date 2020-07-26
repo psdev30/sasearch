@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from nltk.corpus import stopwords
 from conversions import Conversions
 
 directory = 'C:/Users/psjuk/SASearch'
@@ -51,12 +52,18 @@ def addClip(fileName):
     #extract text from wav file & set Clip model properties
     name, short_path, text = Conversions.extractText(wav, fileName)
 
+    text = text.lower()
+    splitText = text.split()
+    for word in splitText:
+        if(word in stopwords.words('english')):
+            splitText.remove(word)
+
     #construct Clip object + push to db if it doesn't already exist
     if (db.session.query(Clip).filter(Clip.name == name).count() == 0):
         clipObj = Clip(name, short_path, text)
         db.session.add(clipObj)
         db.session.commit()
-        return 'completed!'
+        return 'clip successfully added to database!'
 
 
 if(__name__ == '__main__'):
