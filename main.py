@@ -1,12 +1,14 @@
 import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from nltk.corpus import stopwords
+import nltk
 from conversions import Conversions
 
 directory = 'C:/Users/psjuk/SASearch'
 
 os.chdir(directory)
+
+nltk.download('stopwords')
 
 app = Flask(__name__)
 
@@ -40,9 +42,14 @@ class Clip(db.Model):
 def landingPage():
     return render_template('index.html')
 
+#handle search query
+@app.route('/search/<query>', methods = ['GET'])
+def getMatches(query):
+    return query
+
+#only for adding clips to library
 @app.route('/addClip/<fileName>', methods =['GET'])
 def addClip(fileName):
-
     #convert mp4 file to mp3
     wav, mp3 = Conversions.convertToMp3(fileName)
 
@@ -55,13 +62,11 @@ def addClip(fileName):
     #filter out stopwords before committing to database
     text = text.lower()
     splitText = text.split()
-    for word in splitText:
-        if(word in stopwords.words('english')):
-            splitText.remove(word)
+    splitText = [word for word in splitText if word not in nltk.corpus.stopwords.words('english')]
 
     #construct Clip object + push to db if it doesn't already exist
     if (db.session.query(Clip).filter(Clip.name == name).count() == 0):
-        clipObj = Clip(name, short_path, text)
+        clipObj = Clip(name, short_path, splitText)
         db.session.add(clipObj)
         db.session.commit()
         return 'clip successfully added to database!'
