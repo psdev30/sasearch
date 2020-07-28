@@ -1,12 +1,14 @@
 import os
-from flask import Flask, render_template
+import random
+
+from flask import Flask, render_template, make_response, send_file
 from flask_sqlalchemy import SQLAlchemy
 import nltk
 from conversions import Conversions
 
-directory = 'C:/Users/psjuk/SASearch'
+clipDirectory = 'C:/Users/psjuk/SASearch/clips_library'
 
-os.chdir(directory)
+# os.chdir(directory)
 
 nltk.download('stopwords')
 
@@ -42,17 +44,39 @@ class Clip(db.Model):
 def landingPage():
     return render_template('index.html')
 
-#handle search query
+@app.route('/random')
+def getRandomClip():
+    count = db.engine.execute('select count(id) from clip').scalar()
+    randomId = random.randint(1, count)
+    return randomSearch(randomId)
+
+
+def randomSearch(randomId):
+    results = dict()
+    sqlQuery = db.engine.execute("SELECT * FROM clip WHERE id = (%s)", randomId)
+    for row in sqlQuery:
+        results[0] = row.short_path
+    vidPath = clipDirectory + '/' + results[0]
+    clip = make_response(send_file(vidPath, 'video/mp4'))
+    clip.headers['Content-Disposition'] = 'inline'
+    return clip
+
+#handle search query: ONLY RETURNS FIRST CLIP IF MULTIPLE HITS
 @app.route('/search/<query>', methods = ['GET'])
-def getMatches(query):
+def querySearch(query):
     results = dict()
     counter = 0
-    rs = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
+    sqlQuery = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
 
-    for i in rs:
+    for i in sqlQuery:
         results[counter] = i.short_path
         counter += 1
-    return results
+    # vidPath = os.path.join(clipDirectory, query)
+    vidPath = clipDirectory + '/' + results[0]
+    clip = make_response(send_file(vidPath, 'video/mp4'))
+    clip.headers['Content-Disposition'] = 'inline'
+    return clip
+    # return results
 
 
 
