@@ -1,6 +1,6 @@
 import os
 
-import sqlalchemy
+from sqlalchemy import text
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import nltk
@@ -45,10 +45,15 @@ def landingPage():
     return render_template('index.html')
 
 #handle search query
-@app.route('/search/<query>', methods = ['GET'])
-def getMatches(query):
-    fetch_results = sqlalchemy.text("SELECT * FROM clip WHERE text LIKE CONCAT('%','I','%')")
-    return fetch_results
+@app.route('/search', methods = ['GET'])
+def getMatches():
+    results = dict()
+    counter = 0
+    rs = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%','who','%%')")
+    for i in rs:
+        results[counter] = i.short_path
+        counter += 1
+    return results
 
 
 
