@@ -47,7 +47,8 @@ def landingPage():
 def getMatches(query):
     results = dict()
     counter = 0
-    rs = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%',query,'%%')")
+    rs = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
+
     for i in rs:
         results[counter] = i.short_path
         counter += 1
