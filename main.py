@@ -1,23 +1,24 @@
 import os
 import random
 
-from flask import Flask, render_template, make_response, send_file
+import flask
+from flask import Flask, render_template, make_response, send_file, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import nltk
 from conversions import Conversions
+from flask_cors import CORS
 
 clipDirectory = 'C:/Users/psjuk/SASearch/clips_library'
-
-# os.chdir(directory)
 
 nltk.download('stopwords')
 
 app = Flask(__name__)
+CORS(app)
 
 env = 'dev'
 
 if(env == 'dev'):
-    app.debug = True
+    app.debug = False
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/SASearch'
 else:
     app.debug = False
@@ -44,12 +45,15 @@ class Clip(db.Model):
 def landingPage():
     return render_template('index.html')
 
+@app.route('/caw', methods=['GET'])
+def caw():
+    return flask.jsonify('hello')
+
 @app.route('/random')
 def getRandomClip():
     count = db.engine.execute('select count(id) from clip').scalar()
     randomId = random.randint(1, count)
     return randomSearch(randomId)
-
 
 def randomSearch(randomId):
     results = dict()
@@ -71,13 +75,11 @@ def querySearch(query):
     for i in sqlQuery:
         results[counter] = i.short_path
         counter += 1
-    # vidPath = os.path.join(clipDirectory, query)
     vidPath = clipDirectory + '/' + results[0]
     clip = make_response(send_file(vidPath, 'video/mp4'))
     clip.headers['Content-Disposition'] = 'inline'
+    return render_template('index.html', clip)
     return clip
-    # return results
-
 
 
 
