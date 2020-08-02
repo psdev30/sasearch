@@ -1,14 +1,13 @@
 import os
 import random
-import flask
 from flask import Flask, render_template, make_response, send_file, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import nltk
+from selenium.webdriver.chrome.options import Options
 from conversions import Conversions
 from flask_cors import CORS
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+import cloudinary, cloudinary.uploader, cloudinary.api
+from selenium import webdriver
 
 clipDirectory = 'C:/Users/psjuk/SASearch/clips_library/'
 
@@ -29,7 +28,7 @@ if env == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/SASearch'
 else:
-    app.debug = False
+    app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = ''
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -55,10 +54,16 @@ class Clip(db.Model):
 def landingPage():
     return render_template('index.html')
 
-
-@app.route('/caw', methods=['GET'])
-def caw():
-    return flask.jsonify('hello')
+# add all clips in clips_library directory
+@app.route('/add_clicked', methods=['POST'])
+def add_clips_in_directory():
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    for file in os.listdir(clipDirectory):
+        file = file.split('.')
+        driver = webdriver.Chrome(options=chrome_options)
+        driver.get('http://127.0.0.1:5000/add_clip/{}'.format(file[0]))
+    return 'successfully added all clips!'
 
 
 @app.route('/random')
@@ -66,7 +71,6 @@ def get_random_clip():
     count = db.engine.execute('select count(id) from clip').scalar()
     random_id = random.randint(1, count)
     return random_search(random_id)
-
 
 def random_search(random_id):
     results = dict()
@@ -82,22 +86,27 @@ def random_search(random_id):
 # handle search query: ONLY RETURNS FIRST CLIP IF MULTIPLE HITS
 @app.route('/search/<query>', methods=['GET'])
 def query_search(query):
+    paths = dict()
     results = dict()
     counter = 0
     sql_query = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
 
     for i in sql_query:
-        results[counter] = i.short_path
+        paths[counter] = i.short_path
+        vid_path = clipDirectory + paths[counter]
         counter += 1
-    vid_path = clipDirectory + '/' + results[0]
-    clip = make_response(send_file(vid_path, 'video/mp4'))
-    clip.headers['Content-Disposition'] = 'inline'
-    return render_template('index.html', clip)
-    return clip
+        results[counter] = cloudinary.Search().expression(i.short_path).execute()
+    return results
+
+    # returns a video
+    # clip = make_response(send_file(vid_path, 'video/mp4'))
+    # clip.headers['Content-Disposition'] = 'inline'
+    # return render_template('index.html', clip)
+    # return clip
 
 
 # only for adding clips to library
-@app.route('/addClip/<fileName>', methods=['GET'])
+@app.route('/add-clip/<file_name>', methods=['GET'])
 def add_clip(file_name):
     # convert mp4 file to mp3
     wav, mp3 = Conversions.convertToMp3(file_name)
@@ -119,11 +128,11 @@ def add_clip(file_name):
         db.session.add(clip_obj)
         db.session.commit()
 
-    file = "clips_library/" + "different_era.mp4"
-    cloudinary.uploader.upload_large(file, resource_type="video",
-                                     public_id='clips_library/' + file_name)
+    # add to cloudinary
+    file = "clips_library/" + file_name + '.mp4'
+    cloudinary.uploader.upload_large(file, resource_type="video", public_id='clips_library/' + file_name)
 
-    return 'clip successfully added to database!'
+    return 'clip successfully added to database + cloudinary!'
 
 
 if __name__ == '__main__':
