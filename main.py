@@ -1,5 +1,7 @@
 import os
 import random
+
+import flask
 from flask import Flask, render_template, make_response, send_file, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import nltk
@@ -76,7 +78,10 @@ def random_search(random_id):
     # results = dict()
     sql_query = db.engine.execute("SELECT * FROM clip WHERE id = (%s)", random_id)
     for row in sql_query:
-       return cloudinary.Search().expression(row.short_path).execute()
+       response = cloudinary.Search().expression(row.short_path).execute()
+    # return response
+    return flask.jsonify(response['resources'][0]['url'])
+
 
     # vid_path = clipDirectory + '/' + results[0]
     # clip = make_response(send_file(vid_path, 'video/mp4'))
@@ -87,15 +92,16 @@ def random_search(random_id):
 # handle search query: ONLY RETURNS FIRST CLIP IF MULTIPLE HITS
 @app.route('/search/<query>', methods=['GET'])
 def query_search(query):
-    # paths = dict()
-    results = dict()
+    cloudinary_resp = dict()
+    urls = dict()
     counter = 0
     sql_query = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
-
     for row in sql_query:
-        results[counter] = cloudinary.Search().expression(row.short_path).execute()
+        cloudinary_resp[counter] = cloudinary.Search().expression(row.short_path).execute()
+        urls[counter] = cloudinary_resp[counter]['resources'][0]['url']
         counter += 1
-    return results
+    return flask.jsonify(urls)
+
 
     # returns a video
     # paths[counter] = i.short_path
