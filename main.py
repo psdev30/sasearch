@@ -73,32 +73,34 @@ def get_random_clip():
     return random_search(random_id)
 
 def random_search(random_id):
-    results = dict()
+    # results = dict()
     sql_query = db.engine.execute("SELECT * FROM clip WHERE id = (%s)", random_id)
     for row in sql_query:
-        results[0] = row.short_path
-    vid_path = clipDirectory + '/' + results[0]
-    clip = make_response(send_file(vid_path, 'video/mp4'))
-    clip.headers['Content-Disposition'] = 'inline'
-    return clip
+       return cloudinary.Search().expression(row.short_path).execute()
+
+    # vid_path = clipDirectory + '/' + results[0]
+    # clip = make_response(send_file(vid_path, 'video/mp4'))
+    # clip.headers['Content-Disposition'] = 'inline'
+    # return clip
 
 
 # handle search query: ONLY RETURNS FIRST CLIP IF MULTIPLE HITS
 @app.route('/search/<query>', methods=['GET'])
 def query_search(query):
-    paths = dict()
+    # paths = dict()
     results = dict()
     counter = 0
     sql_query = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
 
-    for i in sql_query:
-        # paths[counter] = i.short_path
-        # vid_path = clipDirectory + paths[counter]
+    for row in sql_query:
+        results[counter] = cloudinary.Search().expression(row.short_path).execute()
         counter += 1
-        results[counter] = cloudinary.Search().expression(i.short_path).execute()
     return results
 
     # returns a video
+    # paths[counter] = i.short_path
+    # vid_path = clipDirectory + paths[counter]
+
     # clip = make_response(send_file(vid_path, 'video/mp4'))
     # clip.headers['Content-Disposition'] = 'inline'
     # return render_template('index.html', clip)
