@@ -92,8 +92,8 @@ def query_search(query):
     sql_query = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
 
     for i in sql_query:
-        paths[counter] = i.short_path
-        vid_path = clipDirectory + paths[counter]
+        # paths[counter] = i.short_path
+        # vid_path = clipDirectory + paths[counter]
         counter += 1
         results[counter] = cloudinary.Search().expression(i.short_path).execute()
     return results
