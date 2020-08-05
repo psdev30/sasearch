@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FlaskService } from './service/flask.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgTwitterTimelineModule } from 'ng-twitter-timeline';
+import { CloudinaryModule } from '@cloudinary/angular-5.x';
+import * as  Cloudinary from 'cloudinary-core';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { NgTwitterTimelineModule } from 'ng-twitter-timeline';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgTwitterTimelineModule
+    NgTwitterTimelineModule,
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dzoq2eys2' }),
+
   ],
   providers: [FlaskService],
   bootstrap: [AppComponent]
