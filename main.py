@@ -56,6 +56,7 @@ class Clip(db.Model):
 def landingPage():
     return render_template('index.html')
 
+
 # add all clips in clips_library directory
 @app.route('/add_clicked', methods=['POST'])
 def add_clips_in_directory():
@@ -68,7 +69,7 @@ def add_clips_in_directory():
     return 'successfully added all clips!'
 
 
-@app.route('/random')
+@app.route('/random', methods=['GET'])
 def get_random_clip():
     count = db.engine.execute('select count(id) from clip').scalar()
     random_id = random.randint(1, count)
@@ -80,7 +81,7 @@ def random_search(random_id):
     for row in sql_query:
        response = cloudinary.Search().expression(row.short_path).execute()
     # return response
-    return flask.jsonify(response['resources'][0]['url'])
+    return flask.jsonify(response['resources'][0]['public_id'])
 
 
     # vid_path = clipDirectory + '/' + results[0]
@@ -98,9 +99,9 @@ def query_search(query):
     sql_query = db.engine.execute("SELECT * FROM clip WHERE text LIKE CONCAT('%%', (%s) ,'%%')", (query))
     for row in sql_query:
         cloudinary_resp[counter] = cloudinary.Search().expression(row.short_path).execute()
-        urls[counter] = cloudinary_resp[counter]['resources'][0]['url']
+        urls[counter] = cloudinary_resp[counter]['resources'][0]['public_id']
         counter += 1
-    return flask.jsonify(urls)
+    return urls
 
 
     # returns a video
