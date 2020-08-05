@@ -1,5 +1,6 @@
 import { FlaskService } from './service/flask.service';
 import { Component, OnInit } from '@angular/core';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +10,26 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'SASearch-web';
   query: string;
-  url: string;
-  urls: any[] = [];
-  searchClicked
+  publicId: string;
+  publicIds: any[] = [];
+  searchClicked: boolean = false;
   randomClicked: boolean = false;
 
-  constructor(private flaskService: FlaskService) { }
+  constructor(private flaskService: FlaskService, private cloudinary: Cloudinary) { }
 
   ngOnInit() { }
 
   setQuery(query: string) {
     this.query = query;
-    console.log(this.query)
   }
 
   search(query: string) {
     this.flaskService.search(query).subscribe((resp: any) => {
-      console.log(resp);
-      this.urls.push(resp[0]);
+      let respLength: number = Object.keys(resp).length
+      for (let i = 0; i < respLength; i++) {
+        this.publicIds.push(resp[i]);
+        console.log(this.publicIds[i])
+      }
       this.searchClicked = true;
     });
     this.reset();
@@ -35,7 +38,7 @@ export class AppComponent implements OnInit {
   getRandom() {
     this.flaskService.getRandom().subscribe((resp: string) => {
       console.log(resp);
-      this.url = resp;
+      this.publicId = resp;
       this.randomClicked = true;
     });
     this.reset();
@@ -43,8 +46,8 @@ export class AppComponent implements OnInit {
 
 
   reset() {
-    this.url = '';
-    this.urls = [];
+    this.publicId = '';
+    this.publicIds = [];
     this.searchClicked = false;
     this.randomClicked = false;
   }

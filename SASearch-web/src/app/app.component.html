@@ -34,27 +34,37 @@
   </form>
 </nav>
 
-<div *ngIf="searchClicked">
-  <video width="250" height="240" controls>
-    <source class="cld-video-player cld-video-player-skin-light" src={{urls[0]}} type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<div *ngIf="searchClicked==true">
+  <div *ngFor="let i of publicIds" class="flex-container">
+    <cl-video public-id={{i}} controls="true">
+      <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
+    </cl-video>
+  </div>
+
+  <!-- <div *ngFor="let i of urls" class="flex-container">
+    <div class="flex-container">
+      <video width="100%" height="100%" controls>
+        <source class="cld-video-player cld-video-player-skin-light" src={{i}} type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div> -->
 </div>
 
 
-<button class="btn btn-light" (click)="getRandom()">
+<!-- <cl-video public-id="clips_library/we_do_not_care" controls="true">
+  <cl-transformation width="225" height="225" quality="10" crop="fill"></cl-transformation>
+</cl-video> -->
+
+<button class="btn" style="color: black; background: #ddd;" (click)="getRandom()">
   Get Random Clip
 </button>
 
 <div *ngIf="randomClicked">
-  <video width="250" height="240" controls>
-    <source class="cld-video-player cld-video-player-skin-light" src={{url}} type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <cl-video public-id={{publicId}} controls="true">
+    <cl-transformation width="225" height="225" quality="10" crop="fill"></cl-transformation>
+  </cl-video>
 </div>
-
-
-
 
 
 
@@ -63,7 +73,17 @@
   <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
   </ng-twitter-timeline>
   <a class="twitter-timeline" data-width='400' data-height="400" data-theme="light"
-    href="https://twitter.com/stephenasmith?ref_src=twsrc%5Etfw">Tweets by stephenasmith</a>
+    href="https://twitter.com/stephenasmith?ref_src=twsrc%5Etfw">Tweets by Stephen A Smith</a>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 <!-- END EMBEDDED SAS TWITTER TIMELINE -->
+
+<!-- EMBEDDED FIRST TAKE TWITTER TIMELINE -->
+<div>
+  <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
+  </ng-twitter-timeline>
+  <a class="twitter-timeline" data-width='400' data-height="400" data-theme="light"
+    href="https://twitter.com/FirstTake">Tweets by First Take</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<!-- END EMBEDDED FIRST TAKE TWITTER TIMELINE -->

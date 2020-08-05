@@ -5,7 +5,11 @@
     font-weight: $bold-font-weight;
 }
 
-.test {
-    width: 300px;
-    height: 300px;
+.flex-container {
+    display: inline-block;
+    margin-right: 5%;
+    // width: 20%;
+
+    flex-direction: row;
+    // flex-wrap: wrap;
 }
