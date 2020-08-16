@@ -1,0 +1,22 @@
+@import "src/assets/variables";
+
+.navbar-styling {
+    font-family: $font-regular;
+    font-weight: $font-weight-regular;
+    color: whitesmoke;
+}
+
+.button-suite {
+    background-color: none;
+    color: whitesmoke;
+
+}
+
+button:hover {
+    background-color: whitesmoke;
+}
+
+.search {
+    color: #fff;
+    border-color: #ccc;
+}
