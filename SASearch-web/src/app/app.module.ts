@@ -8,10 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgTwitterTimelineModule } from 'ng-twitter-timeline';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as  Cloudinary from 'cloudinary-core';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

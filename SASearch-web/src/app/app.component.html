@@ -1,3 +1,8 @@
+<app-navbar></app-navbar>
+
+
+
+
 <!-- CLOUDINARY VIDEO PLAYER -->
 <link href="https://unpkg.com/cloudinary-video-player@1.4.1/dist/cld-video-player.min.css" rel="stylesheet">
 <script src="https://unpkg.com/cloudinary-core@2.10.3/cloudinary-core-shrinkwrap.min.js"
@@ -12,36 +17,44 @@
   integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-styling">
-  <a class="navbar-brand" href="#">Stephen A. Smith Clip Generator</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-styling">
+  <img src="https://pbs.twimg.com/profile_images/1246151237889921032/i4QYCOHi_400x400.jpg"
+    style="width: 50px; height: 50px; border: solid 1px black; margin-right: 1%;" alt="image not available">
+  <a class="navbar-brand">Stephen A. Smith Clip Generator</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <button class="btn btn-light nav-link active" style="color: black; background: transparent;"
+        (click)="getRandom()">Get Random Clip
+      </button>
+      <button class="btn btn-light nav-link active" style="color: black; background: transparent;">Put Something
+        Here
+      </button>
+      <button class="btn btn-light nav-link active" style="color: black; background: transparent;">About<span
+          class="sr-only"></span>
+      </button>
+    </div>
+  </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
-    </ul>
-
+    <ul class="navbar-nav mr-auto"></ul>
   </div>
 
   <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-      (input)="setQuery($event.target.value)">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search for some clips!" aria-label="Search"
+      (input)="setQuery($event.target.value)" style="width: 250px;">
     <button name="search" class="btn btn-outline-success my-2 my-sm-0" type="button"
       (click)="search(query)">Search</button>
   </form>
-</nav>
+</nav> -->
 
-<div *ngIf="searchClicked==true">
-  <div *ngFor="let i of publicIds" class="flex-container">
-    <cl-video public-id={{i}} controls="true">
-      <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
-    </cl-video>
-  </div>
+<div class="grid-container">
+  <div *ngIf="searchClicked==true">
+    <div *ngFor="let i of publicIds" class="flex-container">
+      <cl-video public-id={{i}} controls="true">
+        <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
+      </cl-video>
+    </div>
 
-  <!-- <div *ngFor="let i of urls" class="flex-container">
+    <!-- <div *ngFor="let i of urls" class="flex-container">
     <div class="flex-container">
       <video width="100%" height="100%" controls>
         <source class="cld-video-player cld-video-player-skin-light" src={{i}} type="video/mp4">
@@ -49,41 +62,37 @@
       </video>
     </div>
   </div> -->
-</div>
+  </div>
 
 
-<!-- <cl-video public-id="clips_library/we_do_not_care" controls="true">
+  <!-- <cl-video public-id="clips_library/we_do_not_care" controls="true">
   <cl-transformation width="225" height="225" quality="10" crop="fill"></cl-transformation>
 </cl-video> -->
 
-<button class="btn" style="color: black; background: #ddd;" (click)="getRandom()">
-  Get Random Clip
-</button>
+  <div *ngIf="randomClicked">
+    <cl-video public-id={{publicId}} controls="true">
+      <cl-transformation width="225" height="225" quality="10" crop="fill"></cl-transformation>
+    </cl-video>
+  </div>
 
-<div *ngIf="randomClicked">
-  <cl-video public-id={{publicId}} controls="true">
-    <cl-transformation width="225" height="225" quality="10" crop="fill"></cl-transformation>
-  </cl-video>
+
+  <!-- EMBEDDED SAS TWITTER TIMELINE -->
+  <div class="flex-container">
+    <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
+    </ng-twitter-timeline>
+    <a class="twitter-timeline" data-width='325' data-height="325" data-theme="dark"
+      href="https://twitter.com/stephenasmith?ref_src=twsrc%5Etfw">Tweets by Stephen A Smith</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <!-- END EMBEDDED SAS TWITTER TIMELINE -->
+
+  <!-- EMBEDDED FIRST TAKE TWITTER TIMELINE -->
+  <div class="flex-container">
+    <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
+    </ng-twitter-timeline>
+    <a class="twitter-timeline" data-width='325' data-height="325" data-theme="dark"
+      href="https://twitter.com/FirstTake">Tweets by First Take</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <!-- END EMBEDDED FIRST TAKE TWITTER TIMELINE -->
 </div>
-
-
-
-<!-- EMBEDDED SAS TWITTER TIMELINE -->
-<div style="margin-top: 15%;">
-  <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
-  </ng-twitter-timeline>
-  <a class="twitter-timeline" data-width='400' data-height="400" data-theme="light"
-    href="https://twitter.com/stephenasmith?ref_src=twsrc%5Etfw">Tweets by Stephen A Smith</a>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<!-- END EMBEDDED SAS TWITTER TIMELINE -->
-
-<!-- EMBEDDED FIRST TAKE TWITTER TIMELINE -->
-<div>
-  <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
-  </ng-twitter-timeline>
-  <a class="twitter-timeline" data-width='400' data-height="400" data-theme="light"
-    href="https://twitter.com/FirstTake">Tweets by First Take</a>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<!-- END EMBEDDED FIRST TAKE TWITTER TIMELINE -->
