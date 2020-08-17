@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TransferService } from './../../service/transfer.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList } from '@angular/core';
 import { FlaskService } from 'src/app/service/flask.service';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { NgxXml2jsonService } from 'ngx-xml2json';
@@ -29,7 +29,17 @@ export class ResultsComponent implements OnInit {
       this.reset();
     });
 
-    
+    this.transfer.searchObservable$.subscribe(() => {
+      this.query = this.transfer.getQuery()
+      this.flaskService.search(this.query).subscribe((resp) => {
+        let respLength: number = Object.keys(resp).length
+        for (let i = 0; i < respLength; i++) {
+          this.publicIds.push(resp[i]);
+          console.log(this.publicIds[i])
+        }
+        this.searchClicked = true;
+      })
+    })
 
     // this.transfer.getRandomObservable$.subscribe((resp) => {
     //   this.flaskService.search(resp).subscribe((resp: any) => {

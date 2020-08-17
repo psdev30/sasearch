@@ -5,6 +5,7 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TransferService {
+  query: string;
 
   getRandomSubject: Subject<Boolean> = new Subject<Boolean>();
   getRandomObservable$: Observable<Boolean> = this.getRandomSubject.asObservable();
@@ -21,6 +22,11 @@ export class TransferService {
 
   triggerSearch(trigger: string) {
     this.searchSubject.next(trigger);
+    this.query = trigger;
+  }
+
+  getQuery() {
+    return this.query;
   }
 
 }
