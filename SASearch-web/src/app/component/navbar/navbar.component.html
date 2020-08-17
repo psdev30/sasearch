@@ -11,7 +11,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <button class="btn nav-link active button-suite">Get Random Clip
+            <button class="btn nav-link active button-suite" (click)="triggerGetRandom()">Get Random Clip
             </button>
             <button class="btn nav-link active button-suite">Put Something
                 Here
@@ -23,8 +23,11 @@
             <ul class="navbar-nav mr-auto"></ul>
         </div>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search for some clips!">
-            <button class="btn my-2 my-sm-0 search" type="button">Search</button>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search for some clips!"
+                (input)="setQuery($event.target.value)">
+
+            <button class="btn my-2 my-sm-0 search" type="button" (click)="triggerSearch(query)">Search</button>
+
         </form>
     </div>
 </nav>

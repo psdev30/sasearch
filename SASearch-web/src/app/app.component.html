@@ -1,5 +1,9 @@
 <app-navbar></app-navbar>
 
+<app-results style="height: 100%; width: 100%; display: table;"></app-results>
+
+<!-- <app-twitter></app-twitter> -->
+
 
 
 
@@ -76,23 +80,4 @@
   </div>
 
 
-  <!-- EMBEDDED SAS TWITTER TIMELINE -->
-  <div class="flex-container">
-    <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
-    </ng-twitter-timeline>
-    <a class="twitter-timeline" data-width='325' data-height="325" data-theme="dark"
-      href="https://twitter.com/stephenasmith?ref_src=twsrc%5Etfw">Tweets by Stephen A Smith</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
-  <!-- END EMBEDDED SAS TWITTER TIMELINE -->
-
-  <!-- EMBEDDED FIRST TAKE TWITTER TIMELINE -->
-  <div class="flex-container">
-    <ng-twitter-timeline [dataSrc]="{sourceType: 'profile', screenName: 'test'}" [opts]="{tweetLimit: 10}">
-    </ng-twitter-timeline>
-    <a class="twitter-timeline" data-width='325' data-height="325" data-theme="dark"
-      href="https://twitter.com/FirstTake">Tweets by First Take</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
-  <!-- END EMBEDDED FIRST TAKE TWITTER TIMELINE -->
 </div>

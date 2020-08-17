@@ -1,3 +1,4 @@
+import { TransferService } from './../../service/transfer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  query: string;
 
-  constructor() { }
+  constructor(private transfer: TransferService) { }
 
   ngOnInit(): void {
+  }
+
+  triggerGetRandom() {
+    this.transfer.triggerGetRandom(true)
+  }
+
+
+  setQuery(query: string) {
+    this.query = query;
+  }
+
+  triggerSearch(query: string) {
+    this.transfer.triggerSearch(query);
   }
 
 }

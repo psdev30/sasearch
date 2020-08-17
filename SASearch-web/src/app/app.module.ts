@@ -9,11 +9,15 @@ import { NgTwitterTimelineModule } from 'ng-twitter-timeline';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as  Cloudinary from 'cloudinary-core';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { TwitterComponent } from './component/twitter/twitter.component';
+import { ResultsComponent } from './component/results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    TwitterComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
