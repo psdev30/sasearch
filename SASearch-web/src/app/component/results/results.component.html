@@ -10,7 +10,7 @@
         <table>
             <tbody id="table-scroll" style="display: inline-flex;">
                 <div *ngIf="randomClicked" style="margin-right: 1%;">
-                    <cl-video public-id={{publicId}} controls="true">
+                    <cl-video public-id={{publicId}} controls="true" class="fade-in">
                         <cl-transformation width="225" height="225" quality="100" crop="fill"></cl-transformation>
                     </cl-video>
                 </div>
@@ -18,7 +18,7 @@
                 <div *ngIf="searchClicked" style="display: inline-flex; overflow-x: hidden; overflow-y: hidden;
                      flex-wrap: wrap;">
                     <div *ngFor="let i of publicIds" class="flex-container" style="margin-right: 10px;">
-                        <cl-video public-id={{i}} controls="true">
+                        <cl-video public-id={{i}} controls="true" class="fade-in">
                             <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
                         </cl-video>
                     </div>
