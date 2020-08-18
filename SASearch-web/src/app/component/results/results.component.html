@@ -5,24 +5,59 @@
 <script src="https://unpkg.com/cloudinary-video-player@1.4.1/dist/cld-video-player.min.js"
     type="text/javascript"></script>
 
+<div id="table-wrapper">
+    <div>
+        <table>
+            <tbody id="table-scroll" style="display: inline-flex;">
+                <div *ngIf="randomClicked" style="margin-right: 1%;">
+                    <cl-video public-id={{publicId}} controls="true">
+                        <cl-transformation width="225" height="225" quality="100" crop="fill"></cl-transformation>
+                    </cl-video>
+                </div>
+
+                <div *ngIf="searchClicked" style="display: inline-flex; overflow-x: hidden; overflow-y: hidden;
+                     flex-wrap: wrap;">
+                    <div *ngFor="let i of publicIds" class="flex-container" style="margin-right: 10px;">
+                        <cl-video public-id={{i}} controls="true">
+                            <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
+                        </cl-video>
+                    </div>
+                </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 <!-- RESULTS -->
-<div class="main" style="overflow: scroll">
-    <div *ngIf="randomClicked">
-        <cl-video public-id={{publicId}} controls="true">
-            <cl-transformation width="225" height="225" quality="100" crop="fill"></cl-transformation>
-        </cl-video>
-    </div>
+<!-- <div id="table-wrapper">
+    <div class="table-scroll">
+        <div class="main">
+            <div *ngIf="randomClicked">
+                <cl-video public-id={{publicId}} controls="true">
+                    <cl-transformation width="225" height="225" quality="100" crop="fill"></cl-transformation>
+                </cl-video>
+            </div>
 
-    <div *ngIf="searchClicked==true">
-        <div *ngFor="let i of publicIds" class="flex-container">
-            <cl-video public-id={{i}} controls="true">
-                <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
-            </cl-video>
+            <div *ngIf="searchClicked">
+                <div *ngFor="let i of publicIds" class="flex-container">
+                    <cl-video public-id={{i}} controls="true">
+                        <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
+                    </cl-video>
+                </div>
+            </div>
+
         </div>
-    </div>
 
 </div>
+
+    </div>
 
 
 <div class="footer">
@@ -31,4 +66,4 @@
     <a class="twitter-timeline" data-width='250' data-height='210' data-theme="dark"
         href="https://twitter.com/stephenasmith?ref_src=twsrc%5Etfw">Tweets by Stephen A Smith</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
+</div> -->

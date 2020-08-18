@@ -21,12 +21,20 @@ export class TransferService {
   }
 
   triggerSearch(trigger: string) {
+    this.setQuery(trigger);
     this.searchSubject.next(trigger);
-    this.query = trigger;
   }
 
   getQuery() {
     return this.query;
+  }
+
+  setQuery(query: string) {
+    this.query = query;
+  }
+
+  resetQuery() {
+    this.query = '';
   }
 
 }

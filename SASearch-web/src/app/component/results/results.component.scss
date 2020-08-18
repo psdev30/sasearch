@@ -1,30 +1,59 @@
 @import "src/assets/variables";
 
-.wrapper {
-border: solid 3px orange;
-display: table;
-height: 100%;
-width: 100%;
-margin: 0;
-padding: 0;
-}
+// #table-wrapper {
+//   position:relative;
+// }
+// #table-scroll {
+//   height: 100%;
+//   overflow-y: scroll;  
+//   // background-color: blue;
+// }
 
-.main {
-  display: table-row;
-  // background-color: blue;
-  height: 50%
-/*   height: 50%; */
-}
+// #table-wrapper table {
+//   width:100%; 
+// }
+
+// #table-wrapper table * {
+//   border :yellow solid 3px;
+//   color:black;
+// }
+
+
+// .wrapper {
+// border: solid 3px orange;
+// display: table;
+// height: 100%;
+// width: 100%;
+// margin: 0;
+// padding: 0;
+// }
+
+// .main {
+//   display: table-row;
+//   height: 50%;
+//   max-height: 50%;
+//   white-space: pre-wrap; 
+//   overflow: scroll;
+// }
+
+// #table-wrapper {
+//   position:relative;
+// }
+// #table-scroll {
+//   overflow:scroll;  
+// }
 
 .footer {
   display: table-row;
-  background-color: yellow;
-  height: 50%
+ border: solid 3px blue;
+  height: 10%
 }
 
-.col-1 {
-  display: table-column;
-}
+// .flex-container {
+//     display: inline-block;
+//     margin-right: 5%;
+//     flex-direction: row;
+// }
 
 // .main {
 // display: table-row;

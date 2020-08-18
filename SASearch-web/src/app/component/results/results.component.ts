@@ -30,6 +30,7 @@ export class ResultsComponent implements OnInit {
     });
 
     this.transfer.searchObservable$.subscribe(() => {
+      this.reset()
       this.query = this.transfer.getQuery()
       this.flaskService.search(this.query).subscribe((resp) => {
         let respLength: number = Object.keys(resp).length
@@ -38,6 +39,7 @@ export class ResultsComponent implements OnInit {
           console.log(this.publicIds[i])
         }
         this.searchClicked = true;
+        this.transfer.resetQuery();
       })
     })
 
