@@ -6,10 +6,13 @@ from flask import Flask, render_template, make_response, send_file, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import nltk
 from selenium.webdriver.chrome.options import Options
-from conversions import Conversions
+# from conversions import Conversions
 from flask_cors import CORS
 import cloudinary, cloudinary.uploader, cloudinary.api
 from selenium import webdriver
+from moviepy.editor import *
+from pydub import AudioSegment
+import speech_recognition as sr
 
 clipDirectory = 'C:/Users/psjuk/SASearch/clips_library/'
 
@@ -24,14 +27,15 @@ cloudinary.config(
     api_secret="l7kp0buevFOoZjzge7DZkVEVA0Q"
 )
 
-env = 'dev'
+env = 'prod'
 
 if env == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/SASearch'
+
 else:
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zjpruukwmzslom:f101159ab3c8cbf5d03c955e3e3c035bb6078292a019ee0c4bfdbb0088922bc0@ec2-35-175-155-248.compute-1.amazonaws.com:5432/dfs59f0918ndjr'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -143,6 +147,34 @@ def add_clip(file_name):
 
     return 'clip successfully added to database + cloudinary!'
 
+
+    def convertToMp3(fileName):
+        mp4 = 'clips_library/' + fileName + '.mp4'
+        mp3 = fileName + '.mp3'
+        wav = fileName + '.wav'
+        videoClip = VideoFileClip(mp4)
+        audioClip = videoClip.audio
+        audioClip.write_audiofile(mp3)
+        audioClip.close()
+        videoClip.close()
+        return wav, mp3
+
+    def convertToWav(wav, mp3):
+        filepath = os.path.abspath(mp3)
+        sound = AudioSegment.from_mp3(filepath).export(wav, format="wav")
+
+    def extractText(wav, fileName):
+        r = sr.Recognizer()
+        with sr.WavFile(os.path.abspath(wav)) as source:
+            audio = r.record(source)
+            text = r.recognize_google(audio)
+            name = fileName.title()
+            if ('_' in fileName):
+                name = name.replace('_', ' ')
+            short_path = fileName + '.mp4'
+        os.remove(fileName + '.mp3')
+        os.remove(fileName + '.wav')
+        return name, short_path, text
 
 if __name__ == '__main__':
     app.run()
