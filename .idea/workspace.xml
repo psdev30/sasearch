@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d382fc9e-3ccb-46a3-8b72-1f92c7bbb353" name="Default Changelist" comment="adjusted endpoints to return urls in json format">
+      <change afterPath="$PROJECT_DIR$/clip_stats.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SASearch-web/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/SASearch-web/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SASearch-web/src/app/component/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/SASearch-web/src/app/component/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SASearch-web/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SASearch-web/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SASearch-web/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/SASearch-web/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1f6jbuCOuaR3ysIVNn170Eg5qcY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PycharmProjects/market_watchlists" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\psjuk\SASearch" />
+      <recent name="C:\Users\psjuk\SASearch\static\styles" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\psjuk\anaconda3\envs\SASearch\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d382fc9e-3ccb-46a3-8b72-1f92c7bbb353" name="Default Changelist" comment="" />
+      <created>1595545510146</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595545510146</updated>
+    </task>
+    <task id="LOCAL-00001" summary="installed dependencies + setup Flask">
+      <created>1595690644449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595690644449</updated>
+    </task>
+    <task id="LOCAL-00002" summary="setup local PostgreSQL database + created Clip table">
+      <created>1595693145068</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595693145068</updated>
+    </task>
+    <task id="LOCAL-00003" summary="created clips library">
+      <created>1595693196128</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1595693196128</updated>
+    </task>
+    <task id="LOCAL-00004" summary="convert mp4 to mp3">
+      <created>1595703404353</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1595703404353</updated>
+    </task>
+    <task id="LOCAL-00005" summary="new clips in library">
+      <created>1595703543804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1595703543804</updated>
+    </task>
+    <task id="LOCAL-00006" summary="finished extracting needed data from clip &amp; storing in postgresql">
+      <created>1595712656017</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595712656017</updated>
+    </task>
+    <task id="LOCAL-00007" summary="finished extracting needed data from clip &amp; storing in postgresql">
+      <created>1595712696418</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1595712696418</updated>
+    </task>
+    <task id="LOCAL-00008" summary="extracted conversion-related code to conversions.py">
+      <created>1595716481853</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1595716481853</updated>
+    </task>
+    <task id="LOCAL-00009" summary="remove generated mp3 &amp; wav files from directory after text is extracted">
+      <created>1595717554170</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1595717554170</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed bug caused by param order in convertToWav()">
+      <created>1595722525551</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1595722525551</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added clips to library">
+      <created>1595724000043</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1595724000043</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added clips to library">
+      <created>1595726576728</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1595726576728</updated>
+    </task>
+    <task id="LOCAL-00013" summary="failed attempt at removing stop words before storing in db">
+      <created>1595726652056</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1595726652056</updated>
+    </task>
+    <task id="LOCAL-00014" summary="removed stopwords before storing in db">
+      <created>1595799583747</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1595799583747</updated>
+    </task>
+    <task id="LOCAL-00015" summary="trying to run sql query in python..">
+      <created>1595801696572</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1595801696572</updated>
+    </task>
+    <task id="LOCAL-00016" summary="made search endpoint &amp; figured out how to execute raw SQL query from flask + extract short_paths">
+      <created>1595939930412</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1595939930412</updated>
+    </task>
+    <task id="LOCAL-00017" summary="search endpoint accepts query param">
+      <created>1595940323923</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1595940323923</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added generate random clip endpoint">
+      <created>1595959928255</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1595959928255</updated>
+    </task>
+    <task id="LOCAL-00019" summary="had a rough time trying to consume video served by API.. need to integrate CDN into backend">
+      <created>1596112837575</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1596112837576</updated>
+    </task>
+    <task id="LOCAL-00020" summary="removed base.html reference on landing page">
+      <created>1596112876502</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1596112876502</updated>
+    </task>
+    <task id="LOCAL-00021" summary="setup cloudinary CDN">
+      <created>1596163405633</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1596163405633</updated>
+    </task>
+    <task id="LOCAL-00022" summary="automated adding of clips to cloudinary/database">
+      <created>1596396114249</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1596396114249</updated>
+    </task>
+    <task id="LOCAL-00023" summary="using cloudinary search api to return relevant results">
+      <created>1596396354953</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1596396354953</updated>
+    </task>
+    <task id="LOCAL-00024" summary="updated random search to receive cloudinary response">
+      <created>1596398509805</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1596398509805</updated>
+    </task>
+    <task id="LOCAL-00025" summary="adjusted endpoints to return urls in json format">
+      <created>1596403447836</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1596403447836</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/pocketsphinx-python" />
+      <path value="$PROJECT_DIR$/pocketsphinx-python/pocketsphinx" />
+      <path value="$PROJECT_DIR$/pocketsphinx-python/sphinxbase" />
+    </ignored-roots>
+    <MESSAGE value="installed dependencies + setup Flask" />
+    <MESSAGE value="setup local PostgreSQL database + created Clip table" />
+    <MESSAGE value="created clips library" />
+    <MESSAGE value="convert mp4 to mp3" />
+    <MESSAGE value="new clips in library" />
+    <MESSAGE value="finished extracting needed data from clip &amp; storing in postgresql" />
+    <MESSAGE value="extracted conversion-related code to conversions.py" />
+    <MESSAGE value="remove generated mp3 &amp; wav files from directory after text is extracted" />
+    <MESSAGE value="fixed bug caused by param order in convertToWav()" />
+    <MESSAGE value="added clips to library" />
+    <MESSAGE value="failed attempt at removing stop words before storing in db" />
+    <MESSAGE value="removed stopwords before storing in db" />
+    <MESSAGE value="trying to run sql query in python.." />
+    <MESSAGE value="made search endpoint &amp; figured out how to execute raw SQL query from flask + extract short_paths" />
+    <MESSAGE value="search endpoint accepts query param" />
+    <MESSAGE value="added generate random clip endpoint" />
+    <MESSAGE value="had a rough time trying to consume video served by API.. need to integrate CDN into backend" />
+    <MESSAGE value="removed base.html reference on landing page" />
+    <MESSAGE value="setup cloudinary CDN" />
+    <MESSAGE value="automated adding of clips to cloudinary/database" />
+    <MESSAGE value="using cloudinary search api to return relevant results" />
+    <MESSAGE value="updated random search to receive cloudinary response" />
+    <MESSAGE value="adjusted endpoints to return urls in json format" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted endpoints to return urls in json format" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1174" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595545647504">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1174" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1595545647504" />
+    <state x="1000" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597772439656">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="372" y="149" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1595554206887" />
+    <state x="1000" y="307" key="#com.intellij.fileTypes.FileTypeChooser/0.0.3440.1400@0.0.3440.1400" timestamp="1597772439656" />
+    <state x="2368" y="461" key="FileChooserDialogImpl" timestamp="1595698263185">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2368" y="461" key="FileChooserDialogImpl/0.0.3440.1400@0.0.3440.1400" timestamp="1595698263185" />
+    <state width="3420" height="371" key="GridCell.Tab.0.bottom" timestamp="1597870134895">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="103" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597718213586" />
+    <state width="3420" height="371" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134895" />
+    <state width="3420" height="371" key="GridCell.Tab.0.center" timestamp="1597870134894">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="103" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597718213586" />
+    <state width="3420" height="371" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134894" />
+    <state width="3420" height="371" key="GridCell.Tab.0.left" timestamp="1597870134894">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="103" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597718213585" />
+    <state width="3420" height="371" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134894" />
+    <state width="3420" height="371" key="GridCell.Tab.0.right" timestamp="1597870134894">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="103" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597718213586" />
+    <state width="3420" height="371" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134894" />
+    <state width="3420" height="371" key="GridCell.Tab.1.bottom" timestamp="1597870134692">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="148" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597718212440" />
+    <state width="3420" height="371" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134692" />
+    <state width="3420" height="371" key="GridCell.Tab.1.center" timestamp="1597870134692">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="148" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1597718212440" />
+    <state width="3420" height="371" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134692" />
+    <state width="3420" height="371" key="GridCell.Tab.1.left" timestamp="1597870134692">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="148" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1597718212440" />
+    <state width="3420" height="371" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134692" />
+    <state width="3420" height="371" key="GridCell.Tab.1.right" timestamp="1597870134692">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1260" height="148" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1597718212440" />
+    <state width="3420" height="371" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1597870134692" />
+    <state x="282" y="0" key="SettingsEditor" timestamp="1596161656042">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="282" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1596161656042" />
+    <state x="1221" y="344" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1596113386034" />
+    <state x="2172" y="435" key="Vcs.Push.Dialog.v2" timestamp="1596403449142">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="466" y="146" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1596163407306" />
+    <state x="2172" y="435" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1596403449142" />
+    <state width="1728" height="708" key="XDebugger.FullValuePopup" timestamp="1596402568613">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1728" height="708" key="XDebugger.FullValuePopup/0.0.3440.1400@0.0.3440.1400" timestamp="1596402568613" />
+    <state x="255" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595554315384">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="255" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1595554315384" />
+    <state x="455" y="256" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595644244091">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="455" y="256" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1595644244091" />
+  </component>
+</project>

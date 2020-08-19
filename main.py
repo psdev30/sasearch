@@ -1,8 +1,7 @@
 import os
 import random
-
 import flask
-from flask import Flask, render_template, make_response, send_file, jsonify
+from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import nltk
 from selenium.webdriver.chrome.options import Options
@@ -10,6 +9,8 @@ from conversions import Conversions
 from flask_cors import CORS
 import cloudinary, cloudinary.uploader, cloudinary.api
 from selenium import webdriver
+from moviepy.editor import *
+
 
 clipDirectory = 'C:/Users/psjuk/SASearch/clips_library/'
 
@@ -29,9 +30,10 @@ env = 'dev'
 if env == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/SASearch'
+
 else:
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zjpruukwmzslom:f101159ab3c8cbf5d03c955e3e3c035bb6078292a019ee0c4bfdbb0088922bc0@ec2-35-175-155-248.compute-1.amazonaws.com:5432/dfs59f0918ndjr'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -142,6 +144,7 @@ def add_clip(file_name):
     cloudinary.uploader.upload_large(file, resource_type="video", public_id='clips_library/' + file_name)
 
     return 'clip successfully added to database + cloudinary!'
+
 
 
 if __name__ == '__main__':
