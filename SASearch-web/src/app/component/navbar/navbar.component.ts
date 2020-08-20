@@ -21,10 +21,12 @@ export class NavbarComponent implements OnInit {
 
   setQuery(query: string) {
     this.query = query;
+    console.log(query)
   }
 
   triggerSearch(query: string) {
     this.transfer.triggerSearch(query);
+    // this.query = ''
   }
 
 }

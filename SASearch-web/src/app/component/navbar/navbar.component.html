@@ -8,14 +8,40 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <!-- <div style="display: flex; flex-direction: row; justify-content: center;"> -->
                 <!-- Accent-colored raised button with ripple -->
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="float: left;"
-                    (click)='triggerGetRandom()'>
-                    Random Clip
-                </button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                    About
-                </button>
+                <!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        style="float: left;" (click)='triggerGetRandom()'>
+                        Random Clip
+                    </button> -->
+                <div>
+                    <a class="mdl-navigation__link js-ripple-effect" (click)="triggerGetRandom()">
+                        Random Clip
+                    </a>
+                </div>
+
+                <!-- Expandable Textfield -->
+                <form onsubmit="return false">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="sample6"
+                                placeholder="Search for some clips!" (input)="setQuery($event.target.value)"
+                                (keyup.enter)="triggerSearch(query)" (keydown.enter)="triggerSearch(query); ">
+                            <label class="mdl-textfield__label" for="sample-expandable">Search for some
+                                clips!</label>
+                        </div>
+                    </div>
+
+                </form>
+                <!-- <button mat-raised-button>
+                    Search
+                </button> -->
+                <!-- </div> -->
+
+
             </nav>
         </div>
     </header>
