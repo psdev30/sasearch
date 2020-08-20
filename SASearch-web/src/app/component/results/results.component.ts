@@ -1,8 +1,6 @@
 import { TransferService } from './../../service/transfer.service';
 import { Component, OnInit } from '@angular/core';
 import { FlaskService } from 'src/app/service/flask.service';
-import { Cloudinary } from '@cloudinary/angular-5.x';
-import { ToastrService } from 'ngx-toastr';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -16,12 +14,12 @@ export class ResultsComponent implements OnInit {
   publicIds: any[] = [];
   searchClicked: string = 'false';
   randomClicked: string = 'false';
-  error: boolean;
+  loading: boolean = false;
 
-  constructor(private flaskService: FlaskService, private cloudinary: Cloudinary, private transfer: TransferService, private toastr: ToastrService, private snackBar: MatSnackBar) { }
+  constructor(private flaskService: FlaskService, private transfer: TransferService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.transfer.getRandomObservable$.subscribe((resp) => {
+    this.transfer.getRandomObservable$.subscribe(() => {
       this.flaskService.getRandom().subscribe((resp: string) => {
         console.log(resp);
         this.publicId = resp;
@@ -37,7 +35,6 @@ export class ResultsComponent implements OnInit {
       this.flaskService.search(this.query).subscribe((resp) => {
         let respLength: number = Object.keys(resp).length
         if (respLength == 0) {
-          // this.errorMessage()
           this.openSnackBar(this.query, 'Close');
         }
         for (let i = 0; i < respLength; i++) {
@@ -46,23 +43,13 @@ export class ResultsComponent implements OnInit {
         }
         this.searchClicked = 'true';
         this.transfer.resetQuery();
-      })
+      });
     });
 
 
-    // this.transfer.getRandomObservable$.subscribe((resp) => {
-    //   this.flaskService.search(resp).subscribe((resp: any) => {
-    //     let respLength: number = Object.keys(resp).length
-    //     for (let i = 0; i < respLength; i++) {
-    //       this.publicIds.push(resp[i]);
-    //       console.log(this.publicIds[i])
-    //     }
-    //     this.searchClicked = true;
-    //   });
-    //   this.reset();
-    // })
-
-
+    this.transfer.loadingObservable$.subscribe(() => {
+      this.loading = true;
+    })
 
   }
 
@@ -71,10 +58,6 @@ export class ResultsComponent implements OnInit {
     this.snackBar.open('No results matching ' + query + ' were found!', action, {
       duration: 3000,
     });
-  }
-
-  errorMessage() {
-    this.toastr.error('There are no clips matching that query', 'Error!');
   }
 
   search(query: string) {

@@ -13,6 +13,9 @@ export class TransferService {
   searchSubject: Subject<any> = new Subject<any>();
   searchObservable$: Observable<any> = this.searchSubject.asObservable();
 
+  loadingSubject: Subject<any> = new Subject<any>();
+  loadingObservable$: Observable<any> = this.loadingSubject.asObservable();
+
   constructor() { }
 
 
@@ -35,6 +38,10 @@ export class TransferService {
 
   resetQuery() {
     this.query = '';
+  }
+
+  triggerLoading(trigger: boolean) {
+    this.loadingSubject.next(trigger);
   }
 
 }
