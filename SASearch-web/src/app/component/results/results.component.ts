@@ -1,7 +1,8 @@
 import { TransferService } from './../../service/transfer.service';
-import { Component, OnInit, QueryList } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FlaskService } from 'src/app/service/flask.service';
 import { Cloudinary } from '@cloudinary/angular-5.x';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-results',
@@ -14,8 +15,9 @@ export class ResultsComponent implements OnInit {
   publicIds: any[] = [];
   searchClicked: string = 'false';
   randomClicked: string = 'false';
+  error: boolean;
 
-  constructor(private flaskService: FlaskService, private cloudinary: Cloudinary, private transfer: TransferService) { }
+  constructor(private flaskService: FlaskService, private cloudinary: Cloudinary, private transfer: TransferService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.transfer.getRandomObservable$.subscribe((resp) => {
@@ -34,7 +36,8 @@ export class ResultsComponent implements OnInit {
       this.flaskService.search(this.query).subscribe((resp) => {
         let respLength: number = Object.keys(resp).length
         if (respLength == 0) {
-          
+          // this.error = true;
+          this.errorMessage()
         }
         for (let i = 0; i < respLength; i++) {
           this.publicIds.push(resp[i]);
@@ -43,7 +46,8 @@ export class ResultsComponent implements OnInit {
         this.searchClicked = 'true';
         this.transfer.resetQuery();
       })
-    })
+    });
+
 
     // this.transfer.getRandomObservable$.subscribe((resp) => {
     //   this.flaskService.search(resp).subscribe((resp: any) => {
@@ -61,7 +65,9 @@ export class ResultsComponent implements OnInit {
 
   }
 
-
+  errorMessage() {
+    this.toastr.error('There are no clips matching that query', 'Error!');
+  }
 
   search(query: string) {
     this.flaskService.search(query).subscribe((resp: any) => {

@@ -12,6 +12,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ResultsComponent } from './component/results/results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dzoq2eys2' }),
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-center'
+    })
 
   ],
   providers: [FlaskService],

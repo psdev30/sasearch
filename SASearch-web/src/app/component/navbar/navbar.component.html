@@ -29,7 +29,8 @@
                         <div class="mdl-textfield__expandable-holder">
                             <input class="mdl-textfield__input" type="text" id="sample6"
                                 placeholder="Search for some clips!" (input)="setQuery($event.target.value)"
-                                (keyup.enter)="triggerSearch(query)" (keydown.enter)="triggerSearch(query); ">
+                                (keydown.enter)="triggerSearch(query); ">
+                            <!--  (keyup.enter)="triggerSearch(query)"  -->
                             <label class="mdl-textfield__label" for="sample-expandable">Search for some
                                 clips!</label>
                         </div>
