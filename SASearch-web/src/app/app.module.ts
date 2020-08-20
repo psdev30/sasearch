@@ -30,7 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatFormFieldModule,
     MatButtonModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-center'
+      positionClass: 'toast-bottom-center',
     })
 
   ],

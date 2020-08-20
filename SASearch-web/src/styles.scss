@@ -28,6 +28,12 @@ $SASearch-web-theme: mat-light-theme($SASearch-web-primary, $SASearch-web-accent
 
 /* You can add global styles to this file, and also import other style files */
 
+
+.toastr {
+  font: Roboto;
+  font-family: Roboto;
+}
+
 .fade-in {
   animation: fadeIn ease 2s;
   -webkit-animation: fadeIn ease 2s;
