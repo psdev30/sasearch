@@ -47,8 +47,11 @@ export class ResultsComponent implements OnInit {
     });
 
 
-    this.transfer.loadingObservable$.subscribe(() => {
-      this.loading = true;
+    this.transfer.loadingObservable$.subscribe((resp) => {
+      if (resp)
+        this.loading = true;
+      else
+        this.loading = false;
     })
 
   }

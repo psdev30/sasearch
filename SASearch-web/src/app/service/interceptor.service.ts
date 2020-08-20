@@ -13,18 +13,22 @@ const action: string = 'Close';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar, private transfer: TransferService) { }
 
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(httpRequest).pipe(retry(2), catchError((error: HttpErrorResponse) => {
+    this.transfer.triggerLoading(true);
+    return next.handle(httpRequest).pipe(catchError((error: HttpErrorResponse) => {
       console.log('this is server side error');
       let errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
 
-      if (error.status == 0)
+      if (error.status == 0) {
+        this.transfer.triggerLoading(false)
         this.snackBar.open(serverError, action, {
           duration: 3000,
         });
+      }
+
 
       return throwError(errorMsg)
     }));

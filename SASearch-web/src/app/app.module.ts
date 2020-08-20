@@ -16,6 +16,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ResultsComponent } from './component/results/results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     MatSnackBarModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-center',
     }),

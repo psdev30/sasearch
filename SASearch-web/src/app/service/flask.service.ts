@@ -18,7 +18,7 @@ export class FlaskService {
 
 
   search(query: string) {
-    this.transfer.triggerLoading(true);
+
     return this.http.get<any>(environment.baseUrl + search + query)
   }
 
