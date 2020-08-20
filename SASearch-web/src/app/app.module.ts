@@ -1,4 +1,5 @@
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,9 +30,10 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatSnackBarModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-center',
-    })
+    }),
 
   ],
   providers: [FlaskService],

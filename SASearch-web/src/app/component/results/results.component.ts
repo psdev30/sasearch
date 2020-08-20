@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlaskService } from 'src/app/service/flask.service';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { ToastrService } from 'ngx-toastr';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-results',
@@ -17,7 +18,7 @@ export class ResultsComponent implements OnInit {
   randomClicked: string = 'false';
   error: boolean;
 
-  constructor(private flaskService: FlaskService, private cloudinary: Cloudinary, private transfer: TransferService, private toastr: ToastrService) { }
+  constructor(private flaskService: FlaskService, private cloudinary: Cloudinary, private transfer: TransferService, private toastr: ToastrService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.transfer.getRandomObservable$.subscribe((resp) => {
@@ -36,8 +37,8 @@ export class ResultsComponent implements OnInit {
       this.flaskService.search(this.query).subscribe((resp) => {
         let respLength: number = Object.keys(resp).length
         if (respLength == 0) {
-          // this.error = true;
-          this.errorMessage()
+          // this.errorMessage()
+          this.openSnackBar(this.query, 'Close');
         }
         for (let i = 0; i < respLength; i++) {
           this.publicIds.push(resp[i]);
@@ -63,6 +64,13 @@ export class ResultsComponent implements OnInit {
 
 
 
+  }
+
+
+  openSnackBar(query: string, action: string) {
+    this.snackBar.open('No results matching ' + query + ' were found!', action, {
+      duration: 3000,
+    });
   }
 
   errorMessage() {
