@@ -17,19 +17,19 @@ export class InterceptorService implements HttpInterceptor {
 
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.transfer.triggerLoading(true);
+    this.transfer.toggleLoadingIndicator(true);
     return next.handle(httpRequest).pipe(catchError((error: HttpErrorResponse) => {
       console.log('this is server side error');
       let errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
 
       if (error.status == 0) {
-        this.transfer.triggerLoading(false)
+        this.transfer.toggleLoadingIndicator(false)
         this.snackBar.open(serverError, action, {
           duration: 3000,
         });
       }
 
-
+      this.transfer.toggleLoadingIndicator(false);
       return throwError(errorMsg)
     }));
   }

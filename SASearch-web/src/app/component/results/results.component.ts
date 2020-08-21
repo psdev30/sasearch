@@ -23,7 +23,7 @@ export class ResultsComponent implements OnInit {
       this.flaskService.getRandom().subscribe((resp: string) => {
         this.publicId = resp;
         this.randomClicked = 'true';
-        this.transfer.triggerLoading(false)
+        this.transfer.toggleLoadingIndicator(false)
       });
       this.reset();
     });
@@ -43,7 +43,7 @@ export class ResultsComponent implements OnInit {
         }
         this.searchClicked = 'true';
         this.transfer.resetQuery();
-        this.transfer.triggerLoading(false)
+        this.transfer.toggleLoadingIndicator(false)
       });
     });
 

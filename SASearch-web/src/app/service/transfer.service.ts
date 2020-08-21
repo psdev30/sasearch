@@ -40,8 +40,8 @@ export class TransferService {
     this.query = '';
   }
 
-  triggerLoading(trigger: boolean) {
-    this.loadingSubject.next(trigger);
+  toggleLoadingIndicator(toggle: boolean) {
+    this.loadingSubject.next(toggle);
   }
 
 }
