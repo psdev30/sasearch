@@ -17,6 +17,8 @@ import { ResultsComponent } from './component/results/results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { environment } from 'src/environments/environment.prod';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     MatSnackBarModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-center',
     }),
-
   ],
+
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
     FlaskService],
