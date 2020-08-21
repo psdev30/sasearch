@@ -15,8 +15,8 @@ export class FlaskService {
   constructor(private http: HttpClient) { }
 
   search(query: string) {
-    let encodedURL: string = encodeURIComponent(environment.baseUrl + search + query);
-    return this.http.get(encodedURL);
+    let encodedURL: string = encodeURIComponent(query);
+    return this.http.get(environment.baseUrl + search + encodedURL);
   }
 
   getRandom() {
