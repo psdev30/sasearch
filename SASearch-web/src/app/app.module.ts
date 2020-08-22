@@ -19,12 +19,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { environment } from 'src/environments/environment.prod';
 import { AngularFireModule } from '@angular/fire';
+import { SearchComponent } from './component/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ResultsComponent
+    ResultsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
