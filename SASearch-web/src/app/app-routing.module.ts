@@ -6,10 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'search', pathMatch: 'full' },
-  { path: 'search', component: SearchComponent },
-  { path: 'results', component: ResultsComponent },
-  { path: 'navbar', component: NavbarComponent }
+  // { path: '', redirectTo: 'search', pathMatch: 'full' },
+  // { path: 'search', component: SearchComponent },
+  // { path: 'results', component: ResultsComponent },
+  // { path: 'navbar', component: NavbarComponent }
 ];
 
 @NgModule({

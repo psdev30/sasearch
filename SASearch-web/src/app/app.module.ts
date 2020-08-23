@@ -2,7 +2,7 @@ import { InterceptorService } from './service/interceptor.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, TRANSLATIONS } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlaskService } from './service/flask.service';
@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { environment } from 'src/environments/environment.prod';
 import { AngularFireModule } from '@angular/fire';
 import { SearchComponent } from './component/search/search.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SearchComponent } from './component/search/search.component';
     MatSnackBarModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatInputModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-center',
