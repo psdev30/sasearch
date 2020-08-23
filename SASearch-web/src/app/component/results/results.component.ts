@@ -60,22 +60,21 @@ export class ResultsComponent implements OnInit {
       })
 
     else
-      this.flaskService.search(this.route.snapshot.paramMap.get('query')).subscribe((resp) => {
-        this.loading = true;
-        let respLength: number = Object.keys(resp).length;
-        if (respLength == 0) {
-          this.openSnackBar(this.query, 'Close');
-        }
-        for (let i = 0; i < respLength; i++) {
-          this.publicIds.push(resp[i]);
-          console.log(this.publicIds[i])
-        }
-        this.searchClicked = true;
-        this.transfer.resetQuery();
-        this.transfer.toggleLoadingIndicator(false)
-      });
-
-
+      this.query = this.route.snapshot.paramMap.get('query')
+    this.flaskService.search(this.query).subscribe((resp) => {
+      this.loading = true;
+      let respLength: number = Object.keys(resp).length;
+      if (respLength == 0) {
+        this.openSnackBar(this.query, 'Close');
+      }
+      for (let i = 0; i < respLength; i++) {
+        this.publicIds.push(resp[i]);
+        console.log(this.publicIds[i])
+      }
+      this.searchClicked = true;
+      this.transfer.resetQuery();
+      this.transfer.toggleLoadingIndicator(false)
+    });
 
 
     this.transfer.loadingObservable$.subscribe((resp) => {

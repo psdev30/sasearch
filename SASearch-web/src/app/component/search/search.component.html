@@ -19,7 +19,7 @@
         <a [routerLink]="['/results', 'random']"><button mat-flat-button color="accent" style="margin-left: 2%"
                 (click)="triggerGetRandom();">I'm Feeling
                 Lucky</button></a>
-        <a [routerLink]="['/results', query]"><button mat-flat-button color="primary"
+        <a [routerLink]="['/results', query]"><button mat-flat-button color="primary" [disabled]="query == undefined"
                 style="margin-left: 2%">Search</button></a>
     </div>
     <!--  (click)="triggerSearch(query, 'results')" -->
