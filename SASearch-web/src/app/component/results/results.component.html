@@ -13,11 +13,11 @@
         <table>
             <tbody id="table-scroll" style="display: inline-flex;">
 
-                <div *ngIf="loading">
-                    <mat-spinner color="accent"></mat-spinner>
-                </div>
+                <!-- <div *ngIf="loading">
+                        <mat-spinner color="accent"></mat-spinner>
+                    </div> -->
 
-                <div *ngIf="randomClicked == 'true'" style="margin-right: 1%;">
+                <div *ngIf="randomClicked" style="margin-right: 1%;">
                     <cl-video public-id={{publicId}} controls="true" class="fade-in">
                         <cl-transformation width="225" height="225" quality="100" crop="fill"></cl-transformation>
                     </cl-video>
@@ -27,7 +27,8 @@
                      flex-wrap: wrap;">
                     <div *ngFor="let i of publicIds" class="flex-container" style="margin-right: 10px;">
                         <cl-video public-id={{i}} controls="true" class="fade-in">
-                            <cl-transformation width="200" height="200" quality="100" crop="fill"></cl-transformation>
+                            <cl-transformation width="200" height="200" quality="100" crop="fill">
+                            </cl-transformation>
                         </cl-video>
                     </div>
                 </div>
@@ -35,7 +36,6 @@
         </table>
     </div>
 </div>
-
 
 
 

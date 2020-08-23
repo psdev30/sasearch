@@ -1,3 +1,4 @@
+import { TransferService } from './../../service/transfer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   query: string;
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private transfer: TransferService) { }
+
+  ngOnInit(): void { }
+
+  triggerGetRandom() {
+    this.transfer.triggerGetRandom(true)
+  }
+
+  setQuery(query: string) {
+    this.query = query;
+  }
+
+  triggerSearch(query: string) {
+    this.transfer.triggerSearch(query);
+
   }
 
 }

@@ -18,7 +18,7 @@ export class FlaskService {
     return this.http.get(environment.baseUrl + search + encodedURL);
   }
 
-  getRandom() {
+  getRandom(trigger: any) {
     return this.http.get(environment.baseUrl + random);
   }
 

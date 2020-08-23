@@ -1,11 +1,20 @@
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header fade-in-header">
+
     <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
+
+        <div class="mdl-layout__header-row navbar">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons" style="color: white;">keyboard_backspace</i>
+            </button>
             <!-- Title -->
-            <span class="mdl-layout-title">SASearch</span>
+            <span class="mdl-layout-title title">SASearch</span>
             <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
+            <!-- <div class="mdl-layout-spacer"></div> -->
+
+
+
+
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
                 <!-- <div style="display: flex; flex-direction: row; justify-content: center;"> -->
@@ -14,14 +23,13 @@
                         style="float: left;" (click)='triggerGetRandom()'>
                         Random Clip
                     </button> -->
-                <div>
-                    <a class="mdl-navigation__link js-ripple-effect" (click)="triggerGetRandom()">
+
+                <!-- <a class="mdl-navigation__link js-ripple-effect" (click)="triggerGetRandom()">
                         Random Clip
-                    </a>
-                </div>
+                    </a> -->
 
                 <!-- Expandable Textfield -->
-                <form onsubmit="return false">
+                <!-- <form onsubmit="return false">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                         <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
                             <i class="material-icons">search</i>
@@ -29,34 +37,33 @@
                         <div class="mdl-textfield__expandable-holder">
                             <input class="mdl-textfield__input" type="text" id="sample6"
                                 placeholder="Search for some clips!" (input)="setQuery($event.target.value)"
-                                (keydown.enter)="triggerSearch(query); ">
-                            <!--  (keyup.enter)="triggerSearch(query)"  -->
+                                (keydown.enter)="triggerSearch(query);  (keyup.enter)="triggerSearch(query)"">
+                           
                             <label class="mdl-textfield__label" for="sample-expandable">Search for some
                                 clips!</label>
                         </div>
                     </div>
 
-                </form>
-                <!-- <button mat-raised-button>
-                    Search
-                </button> -->
-                <!-- </div> -->
+                </form> -->
 
 
             </nav>
         </div>
     </header>
-    <div class="mdl-layout__drawer">
+
+    <!-- <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Nothing to see here!</span>
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="">Link</a>
             <a class="mdl-navigation__link" href="">Link</a>
         </nav>
-    </div>
+    </div> -->
     <main class="mdl-layout__content">
         <div class="page-content">
             <!-- Your content goes here -->
-            <app-results style="width: 100%; display: table; margin: 0"></app-results>
+            <router-outlet></router-outlet>
+            <!-- <app-search></app-search> -->
+            <!-- <app-results style="width: 100%; display: table; margin: 0"></app-results> -->
         </div>
     </main>
 </div>
