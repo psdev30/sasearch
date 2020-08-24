@@ -15,11 +15,9 @@ export class InterceptorService implements HttpInterceptor {
 
   constructor(private snackBar: MatSnackBar, private transfer: TransferService) { }
 
-
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.transfer.toggleLoadingIndicator(true);
     return next.handle(httpRequest).pipe(catchError((error: HttpErrorResponse) => {
-      console.log('this is server side error');
       let errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
 
       if (error.status == 0) {
