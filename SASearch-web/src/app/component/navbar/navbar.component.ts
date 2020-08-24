@@ -1,5 +1,6 @@
 import { TransferService } from './../../service/transfer.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,28 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  query: string;
-  back: boolean = false;
 
-  constructor(private transfer: TransferService) { }
+  constructor(private transfer: TransferService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.transfer.backObservable$.subscribe(() => {
-      this.back = true;
-    })
-  }
-
-  triggerGetRandom() {
-    this.transfer.triggerGetRandom(true)
-  }
-
-  setQuery(query: string) {
-    this.query = query;
-    console.log(query)
-  }
-
-  triggerSearch(query: string) {
-    this.transfer.triggerSearch(query);
   }
 
 }

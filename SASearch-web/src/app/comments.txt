@@ -70,3 +70,69 @@
 //     margin-right: 5%;
 //     flex-direction: row;
 // }
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-styling sticky-top fade-in"
+    style="background-color: #593196; color: whitesmoke;">
+    <img src="https://pbs.twimg.com/profile_images/1246151237889921032/i4QYCOHi_400x400.jpg"
+        style="width: 50px; height: 50px; border: solid 1px black; margin-right: 1%;" alt="image not available">
+    <a class="navbar-brand">Stephen A. Smith Clip Generator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <button class="btn nav-link active button-suite" (click)="triggerGetRandom()">Get Random Clip
+            </button>
+            <a class="btn nav-link active button-suite"
+                href="https://twitter.com/stephenasmith?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Twitter</a>
+            <button class="btn nav-link active button-suite">About<span class="sr-only"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+        </div>
+
+        <a href="https://twitter.com/stephenasmith?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"></a>
+
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search for some clips!"
+                (input)="setQuery($event.target.value)">
+
+            <button class="btn my-2 my-sm-0 search" type="button" (click)="triggerSearch(query)">Search</button>
+
+        </form>
+    </div>
+</nav> -->
+
+
+    // this.transfer.getRandomObservable$.subscribe(() => {
+    //   this.flaskService.getRandom().subscribe((resp: string) => {
+    //     this.publicId = resp;
+    //     this.randomClicked = 'true';
+    //     this.transfer.toggleLoadingIndicator(false)
+    //   });
+    //   this.reset();
+    // });
+
+    // this.transfer.searchObservable$.subscribe(() => {
+    //   this.reset()
+    //   this.searchClicked = 'loading';
+    //   this.query = this.transfer.getQuery()
+    //   this.flaskService.search(this.query).subscribe((resp) => {
+    //     let respLength: number = Object.keys(resp).length
+    //     if (respLength == 0) {
+    //       this.openSnackBar(this.query, 'Close');
+    //     }
+    //     for (let i = 0; i < respLength; i++) {
+    //       this.publicIds.push(resp[i]);
+    //       console.log(this.publicIds[i])
+    //     }
+    //     this.searchClicked = 'true';
+    //     this.transfer.resetQuery();
+    //     this.transfer.toggleLoadingIndicator(false)
+    //   });
+    // });

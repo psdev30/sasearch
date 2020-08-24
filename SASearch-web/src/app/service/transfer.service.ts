@@ -47,8 +47,8 @@ export class TransferService {
     this.loadingSubject.next(toggle);
   }
 
-  // triggerBack(trigger: Boolean) {
-  //   this.backSubject.next(trigger);
-  // }
+  toggleShowBack(toggle: boolean) {
+    this.backSubject.next(toggle);
+  }
 
 }

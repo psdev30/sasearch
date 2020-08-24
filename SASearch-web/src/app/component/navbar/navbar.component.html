@@ -3,14 +3,7 @@
 
     <header class="mdl-layout__header">
 
-        <div class="mdl-layout__header-row navbar">
-            <div *ngIf="back">
-                <a routerLink="/search"><button class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                        <i class="material-icons" style="color: white;">keyboard_backspace</i>
-                    </button>
-                </a>
-            </div>
-
+        <div class="mdl-layout__header-row">
 
             <!-- Title -->
             <span class="mdl-layout-title title">SASearch</span>
@@ -27,14 +20,12 @@
         </div>
     </header>
 
-    <div *ngIf="!back">
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Nothing to see here!</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
-        </div>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
     </div>
 
     <main class="mdl-layout__content">
@@ -46,6 +37,7 @@
         </div>
     </main>
 </div>
+
 
 
 

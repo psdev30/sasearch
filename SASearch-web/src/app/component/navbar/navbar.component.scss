@@ -1,13 +1,9 @@
 @import "src/assets/variables";
 
-.navbar {
-    padding: 0;
-}
 
 .title {
-margin-left: 10px;
+    margin-left: 10px;
 }
-
 
 .button-suite {
     background-color: none;
@@ -32,4 +28,9 @@ button:hover {
 
 a:hover {
     cursor: pointer;
+    color: #ff4081;
+}
+
+span:hover {
+    color: #ff4081;
 }

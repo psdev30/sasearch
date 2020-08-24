@@ -1,10 +1,12 @@
 @import "src/assets/variables";
 
 
-.footer {
-  display: table-row;
-  border: solid 3px blue;
-  height: 10%
+.home {
+  position:absolute; 
+  bottom: 0; 
+  left: 50%; 
+  margin-bottom: 20px;
+  color: #ff4081;
 }
 
 .loading {

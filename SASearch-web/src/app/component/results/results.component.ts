@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FlaskService } from 'src/app/service/flask.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-results',
@@ -22,42 +21,17 @@ export class ResultsComponent implements OnInit {
   constructor(private flaskService: FlaskService, private transfer: TransferService, private snackBar: MatSnackBar, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.transfer.getRandomObservable$.subscribe(() => {
-    //   this.flaskService.getRandom().subscribe((resp: string) => {
-    //     this.publicId = resp;
-    //     this.randomClicked = 'true';
-    //     this.transfer.toggleLoadingIndicator(false)
-    //   });
-    //   this.reset();
-    // });
 
-    // this.transfer.searchObservable$.subscribe(() => {
-    //   this.reset()
-    //   this.searchClicked = 'loading';
-    //   this.query = this.transfer.getQuery()
-    //   this.flaskService.search(this.query).subscribe((resp) => {
-    //     let respLength: number = Object.keys(resp).length
-    //     if (respLength == 0) {
-    //       this.openSnackBar(this.query, 'Close');
-    //     }
-    //     for (let i = 0; i < respLength; i++) {
-    //       this.publicIds.push(resp[i]);
-    //       console.log(this.publicIds[i])
-    //     }
-    //     this.searchClicked = 'true';
-    //     this.transfer.resetQuery();
-    //     this.transfer.toggleLoadingIndicator(false)
-    //   });
-    // });
-
-    if (this.route.snapshot.paramMap.get('query') == 'random')
+    if (this.route.snapshot.paramMap.get('query') == 'random') {
       this.flaskService.getRandom(this.route.snapshot.paramMap.get('query')).subscribe((resp: any) => {
         this.publicId = resp;
         this.randomClicked = true;
         // this.transfer.toggleLoadingIndicator(false)
         // this.reset();
 
-      })
+      });
+    }
+
 
     else {
       this.query = this.route.snapshot.paramMap.get('query')
@@ -87,9 +61,9 @@ export class ResultsComponent implements OnInit {
 
   }
 
-  // triggerBack() {
-  //   this.transfer.triggerBack(true);
-  // }
+  toggleShowBack(toggle: boolean) {
+    this.transfer.toggleShowBack(toggle);
+  }
 
   openSnackBar(query: string, action: string) {
     this.snackBar.open('No results matching ' + query + ' were found!', action, {
