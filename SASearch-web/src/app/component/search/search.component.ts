@@ -23,7 +23,6 @@ export class SearchComponent implements OnInit {
 
   triggerSearch(query: string) {
     this.transfer.triggerSearch(query);
-
   }
 
 }

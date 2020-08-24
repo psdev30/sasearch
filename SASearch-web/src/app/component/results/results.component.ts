@@ -27,8 +27,6 @@ export class ResultsComponent implements OnInit {
         this.publicId = resp;
         this.randomClicked = true;
         // this.transfer.toggleLoadingIndicator(false)
-        // this.reset();
-
       });
     }
 
@@ -71,29 +69,7 @@ export class ResultsComponent implements OnInit {
     });
   }
 
-  // search(query: any) {
-  //   this.flaskService.search(query).subscribe((resp: any) => {
-  //     let respLength: number = Object.keys(resp).length
-  //     for (let i = 0; i < respLength; i++) {
-  //       this.publicIds.push(resp[i]);
-  //       console.log(this.publicIds[i])
-  //     }
-  //     this.searchClicked = 'true';
-  //   });
-  //   this.reset();
-  // }
-
-  // getRandom() {
-  //   this.flaskService.getRandom().subscribe((resp: string) => {
-  //     this.randomClicked = 'loading';
-  //     console.log(resp);
-  //     this.publicId = resp;
-  //     this.randomClicked = 'true';
-  //   });
-  //   this.reset();
-  // }
-
-
+  
   reset() {
     this.publicId = '';
     this.publicIds = [];

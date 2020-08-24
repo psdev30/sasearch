@@ -49,6 +49,7 @@ import { AboutComponent } from './component/about/about.component';
       { path: 'search', component: SearchComponent },
       { path: 'results/:query', component: ResultsComponent },
       { path: 'navbar', component: NavbarComponent },
+      { path: 'about', component: AboutComponent },
       { path: '**', component: SearchComponent }
     ]),
 
