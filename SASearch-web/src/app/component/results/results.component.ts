@@ -23,18 +23,19 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.route.snapshot.paramMap.get('query') == 'random') {
+      this.loading = true;
       this.flaskService.getRandom(this.route.snapshot.paramMap.get('query')).subscribe((resp: any) => {
         this.publicId = resp;
         this.randomClicked = true;
-        // this.transfer.toggleLoadingIndicator(false)
+        this.loading = false;
       });
     }
 
-
     else {
+      this.loading = true;
       this.query = this.route.snapshot.paramMap.get('query')
       this.flaskService.search(this.query).subscribe((resp) => {
-        this.loading = true;
+
         let respLength: number = Object.keys(resp).length;
         if (respLength == 0) {
           this.openSnackBar(this.query, 'Close');
@@ -45,10 +46,9 @@ export class ResultsComponent implements OnInit {
         }
         this.searchClicked = true;
         this.transfer.resetQuery();
-        this.transfer.toggleLoadingIndicator(false)
+        this.loading = false;
       });
     }
-
 
     this.transfer.loadingObservable$.subscribe((resp) => {
       if (resp)
@@ -69,7 +69,7 @@ export class ResultsComponent implements OnInit {
     });
   }
 
-  
+
   reset() {
     this.publicId = '';
     this.publicIds = [];
