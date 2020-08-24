@@ -21,13 +21,15 @@ import { AngularFireModule } from '@angular/fire';
 import { SearchComponent } from './component/search/search.component';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from "@angular/common";
+import { AboutComponent } from './component/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ResultsComponent,
-    SearchComponent
+    SearchComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

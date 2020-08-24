@@ -17,7 +17,7 @@ export class ResultsComponent implements OnInit {
   searchClicked: boolean = false;
   randomClicked: boolean = false;
   loading: boolean = false;
-  test: any;
+  back: boolean;
 
   constructor(private flaskService: FlaskService, private transfer: TransferService, private snackBar: MatSnackBar, private route: ActivatedRoute) { }
 
@@ -59,22 +59,23 @@ export class ResultsComponent implements OnInit {
 
       })
 
-    else
+    else {
       this.query = this.route.snapshot.paramMap.get('query')
-    this.flaskService.search(this.query).subscribe((resp) => {
-      this.loading = true;
-      let respLength: number = Object.keys(resp).length;
-      if (respLength == 0) {
-        this.openSnackBar(this.query, 'Close');
-      }
-      for (let i = 0; i < respLength; i++) {
-        this.publicIds.push(resp[i]);
-        console.log(this.publicIds[i])
-      }
-      this.searchClicked = true;
-      this.transfer.resetQuery();
-      this.transfer.toggleLoadingIndicator(false)
-    });
+      this.flaskService.search(this.query).subscribe((resp) => {
+        this.loading = true;
+        let respLength: number = Object.keys(resp).length;
+        if (respLength == 0) {
+          this.openSnackBar(this.query, 'Close');
+        }
+        for (let i = 0; i < respLength; i++) {
+          this.publicIds.push(resp[i]);
+          console.log(this.publicIds[i])
+        }
+        this.searchClicked = true;
+        this.transfer.resetQuery();
+        this.transfer.toggleLoadingIndicator(false)
+      });
+    }
 
 
     this.transfer.loadingObservable$.subscribe((resp) => {
@@ -85,6 +86,10 @@ export class ResultsComponent implements OnInit {
     });
 
   }
+
+  // triggerBack() {
+  //   this.transfer.triggerBack(true);
+  // }
 
   openSnackBar(query: string, action: string) {
     this.snackBar.open('No results matching ' + query + ' were found!', action, {

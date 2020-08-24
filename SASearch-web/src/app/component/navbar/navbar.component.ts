@@ -8,16 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   query: string;
+  back: boolean = false;
 
   constructor(private transfer: TransferService) { }
 
   ngOnInit(): void {
+    this.transfer.backObservable$.subscribe(() => {
+      this.back = true;
+    })
   }
 
   triggerGetRandom() {
     this.transfer.triggerGetRandom(true)
   }
-
 
   setQuery(query: string) {
     this.query = query;
@@ -26,7 +29,6 @@ export class NavbarComponent implements OnInit {
 
   triggerSearch(query: string) {
     this.transfer.triggerSearch(query);
-    // this.query = ''
   }
 
 }

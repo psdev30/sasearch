@@ -51,23 +51,23 @@ $SASearch-web-theme: mat-light-theme($SASearch-web-primary, $SASearch-web-accent
 }
 
 @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+0% {opacity:0;}
+100% {opacity:1;}
 }
 
 @-moz-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+0% {opacity:0;}
+100% {opacity:1;}
 }
 
 @-webkit-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+0% {opacity:0;}
+100% {opacity:1;}
 }
 
 @-o-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+0% {opacity:0;}
+100% {opacity:1;}
 }
 
 @-ms-keyframes fadeIn {
@@ -88,5 +88,5 @@ $SASearch-web-theme: mat-light-theme($SASearch-web-primary, $SASearch-web-accent
   height: 10px;
   background-color: #ff4081;
 }
-html, body { height: 100%; }
+// html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

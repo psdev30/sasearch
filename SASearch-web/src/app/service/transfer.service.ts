@@ -16,6 +16,9 @@ export class TransferService {
   loadingSubject: Subject<any> = new Subject<any>();
   loadingObservable$: Observable<any> = this.loadingSubject.asObservable();
 
+  backSubject: Subject<Boolean> = new Subject<Boolean>();
+  backObservable$: Observable<Boolean> = this.backSubject.asObservable();
+
   constructor() { }
 
 
@@ -43,5 +46,9 @@ export class TransferService {
   toggleLoadingIndicator(toggle: boolean) {
     this.loadingSubject.next(toggle);
   }
+
+  // triggerBack(trigger: Boolean) {
+  //   this.backSubject.next(trigger);
+  // }
 
 }
