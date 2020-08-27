@@ -1,11 +1,11 @@
 # SASearch
 SASearch is a clip searcher of the popular sports personality Stephen A. Smith's (SAS) best reactions
 
-## Installation
-Just go to https://sasearch3011.web.app
-
 ## Why I made it
 Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith, it's that he's hilarious, flamboyant, & a meme machine, so opportunities frequently arise in which I could respond to someone w/ a SAS meme or short clip. Unfortunately, the SAS folder on my phone is much too large at this point, so it's kinda hard to find what I'm looking for without some serious scrolling 
+
+## Installation
+Just go to https://sasearch3011.web.app
 
 ## Usage
 - The "I'm Feeling Lucky" button works similarly to Google's—clicking it displays a random video 
