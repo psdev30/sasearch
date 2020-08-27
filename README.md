@@ -78,6 +78,10 @@ this.flaskService.search(this.query).subscribe((resp) => {
 - Add a more advanced caching mechanism
     * right now it has local caching, but as soon as you reload the page the cache clears
 
+
+## Note
+The code for the API is maintained [here](https://github.com/pszdev30/SASearch-backend) so I can integrate Git w/ Heroku for automatic deploys
+
 ## Acknowledgements
 Credit to [@SASBurnerAcct](https://twitter.com/SASBurnerAcct) and NBA Twitter as a whole for most of the SAS clips I have
 
