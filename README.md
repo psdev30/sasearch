@@ -27,4 +27,4 @@ Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith,
 ## Complaints
 If you have any issues w/ SAS---well, I'll just let him show you how I feel
 
-![SAS](https://drive.google.com/file/d/1KqlOu4tEmMEV2_NlyI_0rNptXAaXkQCz/view?usp=sharing)
+![SAS](https://screenrec.com/share/egihlIsH73)
