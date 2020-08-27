@@ -73,7 +73,7 @@ this.flaskService.search(this.query).subscribe((resp) => {
 - Making it Android compatible (\*technically* it works on Android, but it looks terrible and needs you to use the browser, so making a mobile version will be better) 
 - Figuring out buildpack/compatibility issues w/ Selenium + Chrome Webdriver not working on Heroku (so I can add clips automatically to the pool instead of manually having to add each one)
 
-## What I want to do after that
+## What's after ^^
 - Create a custom matching algorithm to get more accurate search results
 - Add a more advanced caching mechanism
     * right now it has local caching, but as soon as you reload the page the cache clears
