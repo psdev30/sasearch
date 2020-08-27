@@ -69,7 +69,7 @@ this.flaskService.search(this.query).subscribe((resp) => {
 });
  ```
 
-## What's in the works
+## What I'm working on now
 - Making it Android compatible (\*technically* it works on Android, but it looks terrible and needs you to use the browser, so making a mobile version will be better) 
 - Figuring out buildpack/compatibility issues w/ Selenium + Chrome Webdriver not working on Heroku (so I can add clips automatically to the pool instead of manually having to add each one)
 
