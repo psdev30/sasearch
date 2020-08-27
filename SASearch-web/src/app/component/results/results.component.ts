@@ -35,7 +35,6 @@ export class ResultsComponent implements OnInit {
       this.loading = true;
       this.query = this.route.snapshot.paramMap.get('query');
       this.flaskService.search(this.query).subscribe((resp) => {
-        console.log(resp)
         let respLength: number = Object.keys(resp).length;
         if (respLength == 0) {
           this.openSnackBar(this.query, 'Close');
