@@ -10,7 +10,7 @@ Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith,
 ## Usage
 - The "I'm Feeling Lucky" button works similarly to Google's—clicking it displays a random video 
 - Unless you're a SAS superfan or frequent NBA Twitter, you probably don't have much of a clue about what you could look up, so here are some example searches:
-    * 
+    * caw
 
 ## How it works
 
