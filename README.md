@@ -10,21 +10,24 @@ Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith,
 ## Usage
 - The "I'm Feeling Lucky" button works similarly to Google's—clicking it displays a random video 
 - Unless you're a SAS superfan or frequent NBA Twitter, you probably don't have much of a clue about what you could look up, so here are some example searches:
-    * caw
+    * amazed
+    * we don't care
+    * who is this
 
 ## How it works
 
 ## Code Snippets
 
 ## What's in the works
-- Making it Android compatible (\*technically* it works on Android, but it looks terrible and still requires the use of a browser, so making a mobile version will be better) 
-- Figuring out buildpack/compatibility issues w/ Selenium + Chrome Webdriver not working on Heroku (so I can add clips automatically instead of manually having to add each one)
+- Making it Android compatible (\*technically* it works on Android, but it looks terrible and needs you to use the browser, so making a mobile version will be better) 
+- Figuring out buildpack/compatibility issues w/ Selenium + Chrome Webdriver not working on Heroku (so I can add clips automatically to the pool instead of manually having to add each one)
 
 ## What I want to do after that
+- Create a custom matching algorithm to improve upon the built-in SQL ILIKE functionality
 - Add a more advanced caching mechanism
     * right now it has local caching, but as soon as you reload the page the cache clears
 
 ## Complaints
-If you have any issues w/ SAS---well, I'll just let him show you how I feel
+If you have any issues w/ SAS—well, I'll just let him show you how I feel
 
 ![SAS](SAS.jpg)
