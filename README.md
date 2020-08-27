@@ -21,7 +21,7 @@ Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith,
 
 - The metadata for each video is stored in a PostgreSQL database table & the media files themselves are hosted in the cloud utilizing Cloudinary
 
-- Flow of application: API call from UI &#8594; SQL query is run to find all relevant clips' IDs &#8594; URLs of clips associated w/ IDs are retrieved from Cloudinary & returned &#8594; URLs are fed as src attribute to video player
+- Flow of application: API call from UI &#8594; API endpoint retrieves IDs of relevant clips from database + Cloudinary & sends back to frontend &#8594; IDs are fed as src attribute to video player
 
 
 ## Code Snippets
