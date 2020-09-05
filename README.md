@@ -86,6 +86,6 @@ The code for the API is maintained [here](https://github.com/pszdev30/SASearch-b
 Credit to [@SASBurnerAcct](https://twitter.com/SASBurnerAcct) and NBA Twitter for most of the SAS clips I have
 
 ## Complaints
-If you have any issues w/ SAS—well, this is all I—and he— has to say
+If you have any issues w/ SAS—well, this is all I—and he—has to say
 
 ![SAS](SAS.jpg)
