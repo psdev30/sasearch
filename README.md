@@ -2,7 +2,7 @@
 SASearch is a clip searcher of the popular sports personality Stephen A. Smith's (SAS) best reactions
 
 ## Why I made it
-Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith, it's that he's hilarious, flamboyant, & a meme machine, so opportunities frequently arise in which I could respond to someone w/ a SAS meme or short clip. Unfortunately, the SAS folder on my phone is much too large at this point, so it's kinda hard to find what I'm looking for without some serious scrolling 
+Tbh, it's pretty much useless—but if you know anything about Stephen A. Smith, it's that he's hilarious, flamboyant, & a meme machine, so opportunities frequently arise in which I could respond to someone w/ a SAS meme or short clip. Unfortunately, the SAS folder on my phone is much too large at this point, so it's kinda hard to find what I'm looking for without some serious scrolling...
 
 ## Installation
 Just go to https://sasearch3011.web.app
@@ -83,9 +83,9 @@ this.flaskService.search(this.query).subscribe((resp) => {
 The code for the API is maintained [here](https://github.com/pszdev30/SASearch-backend) so I can integrate Git w/ Heroku for automatic deploys
 
 ## Acknowledgements
-Credit to [@SASBurnerAcct](https://twitter.com/SASBurnerAcct) and NBA Twitter as a whole for most of the SAS clips I have
+Credit to [@SASBurnerAcct](https://twitter.com/SASBurnerAcct) and NBA Twitter for most of the SAS clips I have
 
 ## Complaints
-If you have any issues w/ SAS—well, I'll just let him show you how I feel
+If you have any issues w/ SAS—well, this is all we have to say
 
 ![SAS](SAS.jpg)
