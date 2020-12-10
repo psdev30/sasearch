@@ -62,7 +62,7 @@ export class ResultsComponent implements OnInit {
   }
 
   openSnackBar(query: string, action: string) {
-    this.snackBar.open('No results matching ' + query + ' were found!', action, {
+    this.snackBar.open('No results matching ' + "\"" + query + "\"" + ' were found!', action, {
       duration: 3500,
     });
   }
