@@ -36,12 +36,12 @@ export class ResultsComponent implements OnInit {
       this.query = this.route.snapshot.paramMap.get('query');
       this.flaskService.search(this.query).subscribe((resp) => {
         let respLength: number = Object.keys(resp).length;
-        if (respLength == 0) {
+        if (respLength == 0)
           this.openSnackBar(this.query, 'Close');
-        }
-        for (let i = 0; i < respLength; i++) {
+
+        for (let i = 0; i < respLength; i++)
           this.publicIds.push(resp[i]);
-        }
+        
         this.searchClicked = true;
         this.transfer.resetQuery();
         this.loading = false;
