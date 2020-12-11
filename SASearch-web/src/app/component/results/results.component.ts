@@ -41,7 +41,7 @@ export class ResultsComponent implements OnInit {
 
         for (let i = 0; i < respLength; i++)
           this.publicIds.push(resp[i]);
-        
+
         this.searchClicked = true;
         this.transfer.resetQuery();
         this.loading = false;

@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void { }
 
   triggerGetRandom() {
-    this.transfer.triggerGetRandom(true)
+    this.transfer.triggerGetRandom(true);
   }
 
   setQuery(query: string) {

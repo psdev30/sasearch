@@ -7,10 +7,9 @@
     </div>
 
 
-    <div class="search fade-in-search" >
+    <div class="search fade-in-search">
         <i class="material-icons" style="font-size: x-large; margin-right: 10px;">search</i>
         <mat-form-field class="example-form-field" style="width: 500px;">
-            <!-- <mat-label class="material-icons" style="margin-bottom: 50px;">search</mat-label> -->
             <input matInput type="text" style="margin-top: 50px;" placeholder="Search for some clips!"
                 (input)="setQuery($event.target.value)" (keydown.enter)="triggerSearch(query)" style="width: 500px;">
         </mat-form-field>

@@ -1,6 +1,5 @@
-import { TransferService } from './../../service/transfer.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private transfer: TransferService, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
